@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Pesho</title>
+</head>
+<body>
+    <script>
+        
+    //var input =  ["test", 1, "world", function(a) { return a + 1; },[5,4,2], 2, { "name": "Martin" }, [1,2,[3,4]],function(a) { return a; }];
+    var input = [[4,5,3,1],[2, 1, [3,4]],"nico", function(a) { return a; }, { "name": "Martin" }, 10.2, 4, 5,[5,7, 3,4], function(a) { return (a + 1)}, function(a) { return (a + 5)}];
+    var resultArray = [];
+    var count = 0;
+   
+    for(var i = 0; i < input.length; i++){
+        if(typeof input[i] === "number"){
+            count++;
+        }
+        else if(typeof input[i] === "string"){
+            var work = input[i].split("");
+            var working = work.reverse();
+            var worked = working.join("");
+            
+            resultArray.push(worked);
+        }
+        else if(typeof input[i] === "object" && Array.isArray(input[i]) == false && typeof input[i] !== "function"){
+            for(var kv in input[i]){
+                var another = kv + ': ' + input[i][kv]; 
+            }
+            resultArray.push(another);  
+        }
+        else if(Array.isArray(input[i])){
+            var temp = [];
+            function check(item){
+                return Array.isArray(item);
+            }
+           
+            if(input[i].some(check) == false){
+                input[i].sort(function(a,b){return a - b;});
+                resultArray.push(input[i]);
+            }
+            else{
+                for(var x in input[i]){
+                   if(Array.isArray(input[i][x])){
+                       for(var y in input[i][x]){
+                           temp.push(input[i][x][y]);
+                       }
+                   } 
+                   else{
+                       temp.push(input[i][x]);
+                   }
+                }
+                resultArray.push(temp);
+            }
+        }
+        else if(typeof input[i] === "function"){
+           var resultOfFunc = input[i](42);
+           resultArray.push(resultOfFunc);
+        }
+    }
+    if(count >= 1)
+    resultArray.unshift(count);
+    
+    console.log(JSON.stringify(resultArray));
+    </script>
+</body>
+</html>

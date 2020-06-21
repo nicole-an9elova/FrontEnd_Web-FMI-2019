@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Good</title>
+</head>
+<body>
+    <p id = "try">Here is the result:</p>
+    <script>
+        var input = "ggggGGlMhhHhhmmlMmdddDlllD";
+        var newInput = input.toLowerCase();
+        var countOfLetters = 0;
+        var countOfLettersArr = [];
+        var counts = [];
+        var ch;
+        for (var i = 0; i < newInput.length; ++i) {
+            ch = newInput.charAt(i); 
+            countOfLetters = counts[ch];
+            counts[ch] = countOfLetters ? countOfLetters + 1 : 1;
+        }
+        for (ch in counts) {
+            countOfLettersArr.push(counts[ch]);
+        }
+        console.log(countOfLettersArr);
+
+        var counts2 = [];
+        var int;
+        var countOfIntegers = 0;
+        var countOfIntegersArr = [];
+        for(var i = 0; i < countOfLettersArr.length; i++){
+            int = countOfLettersArr[i];
+            countOfIntegers = counts2[int];
+            counts2[int] = countOfIntegers ? countOfIntegers + 1: 1;
+        }
+        for(int in counts2){
+            countOfIntegersArr.push(counts2[int]);
+        }
+        console.log(countOfIntegersArr);
+        Array.prototype.allValuesSame = function() {
+            for(var i = 1; i < this.length; i++){
+                if(this[i] !== this[0]){
+                    return false;
+                }
+            }
+                return true;
+        }
+        //
+        var different = 0;
+        for(var i = 0; i < countOfLettersArr.length; i++){
+            for(var j = i + 1; j < countOfLettersArr.length; j++){
+                if(countOfLettersArr[i] !== countOfLettersArr[j]){
+                    var different = countOfLettersArr[i];
+                }
+                
+            }
+        }
+        var difInd = countOfLettersArr.indexOf(different);
+        //
+        if(countOfLettersArr.allValuesSame() == true){
+            console.log("GOOD");
+        }
+        else if(countOfIntegersArr.length <= 2 && countOfIntegersArr.allValuesSame()){
+            console.log("UGLY");
+        }
+        else if(countOfIntegersArr.length > 2){
+            console.log("UGLY");
+        }
+        else if(countOfLettersArr.allValuesSame() == false){
+            var sth = different - 1; 
+            for(var j = 0; j < countOfLettersArr.length; j++){
+                if(countOfLettersArr[j] === different){
+                    countOfLettersArr[j] = sth;
+                }
+                else if(different === 1){
+                    countOfLettersArr.splice(difInd,1);
+                }
+            }
+            if(countOfLettersArr.allValuesSame() == true){
+                console.log("BAD");
+            }
+            else{
+                console.log("UGLY");
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
