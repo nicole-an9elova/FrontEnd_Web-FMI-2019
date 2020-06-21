@@ -1,0 +1,116 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background: black;
+    max-width: 100%;
+    height:100vh;
+    overflow: hidden;
+}
+.images{
+    display: flex;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+     justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;      
+}
+.social{
+    display:flex;
+    margin:10px;
+    padding:0;
+    display:inline-table;
+}
+.social li{
+    display:inline-table;
+}
+.social img{
+    width:64px;
+}
+.social li a:hover{
+    opacity:0.8;
+}
+@keyframes move {
+    0%{opacity: 1;}
+    10%{opacity:0.8}
+    25%{opacity:0.5};
+    50%{opacity:0.5};
+    75%{opacity:0.8};
+    100%{opacity:1};
+}
+@keyframes colorRot{
+    0%{background-color: #e56420;}
+    15%{background-color:#c22525}
+    30%{background-color:#3d9c31};
+    45%{background-color:#37bbde};
+    60%{background-color:#37bbde};
+    75%{background-color:#3d9c31};
+    90%{background-color:#c22525};
+    100%{background-color:#e56420};
+}
+
+#tourDates{
+    background-image: linear-gradient(233deg, #e56420, #c22525, #3d9c31, #37bbde);
+    border: 2px solid #D8D9D8;
+    border-radius:1.5rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    
+    font-size:21px;
+    line-height:1;
+    font-weight: bold;
+    font-family:sans-serif;
+    
+    cursor: pointer;
+    
+    opacity:1;
+    padding: 0.8vw 5vw;
+
+    box-sizing:border-box;
+    
+   
+    cursor:pointer;
+    font-kerning: normal;
+
+    -moz-animation-name: move;
+    -moz-animation-duration: 6s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-name: move;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-name:move;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+}
+.theImage{
+    display:flex;
+    justify-content: center;
+    margin-top:80px;
+    
+}
+.logoImg{
+    display:flex;
+    justify-content: center;
+    padding-top:0px;
+    width:100%;
+}
+@media screen and (max-width:480px){
+    body{
+        width:100%;
+    }
+    .social img{
+        width:36px;
+    }
+    .logoImg{
+        width:50%;
+    }
+}
+
