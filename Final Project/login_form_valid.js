@@ -71,7 +71,7 @@ function register(){
     checkMatch(inputtxt,inputtxt2);
 }
 
-function ne(){
+/*function ne(){
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function() {
@@ -82,6 +82,6 @@ function ne(){
 
     request.open('GET', 'tickets.html', true);
     request.send();
-}
+}*/
 
 
